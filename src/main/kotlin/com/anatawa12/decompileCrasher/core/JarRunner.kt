@@ -37,7 +37,8 @@ object JarRunner {
 					entry.lastModifiedTime?.run { outEntry.lastModifiedTime = this }
 					entry.creationTime?.run { outEntry.creationTime = this }
 					outStream.putNextEntry(outEntry)
-					if (entry.name.substringAfter('.') == "class") {
+					val dotedEntryClassName = entry.name.substringBefore('.').replace('/', '.')
+					if (entry.name.substringAfter('.') == "class" && arguments.exclusions.all { !dotedEntryClassName.startsWith(it) }) {
 						outStream.write(Obfuscationer.obfuscation(inStream.reads(), indyClass, arguments))
 					} else {
 						inStream.copyTo(outStream)

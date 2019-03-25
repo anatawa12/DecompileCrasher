@@ -21,7 +21,8 @@ object ClassesRunner {
 			val relative = srcDir.toURI().relativize(srcFile.toURI()).toString()
 			val dscFile = dscDir.resolve(relative)
 			dscFile.parentFile.mkdirs()
-			if (srcFile.extension == "class") {
+			val dotedEntryClassName = srcFile.nameWithoutExtension.replace('/', '.')
+			if (srcFile.extension == "class" && arguments.exclusions.all { !dotedEntryClassName.startsWith(it) }) {
 				dscFile.writeBytes(Obfuscationer.obfuscation(srcFile.readBytes(), indyClass, arguments))
 			} else {
 				srcFile.copyTo(dscFile)
