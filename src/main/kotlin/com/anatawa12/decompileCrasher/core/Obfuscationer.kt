@@ -15,13 +15,19 @@ import java.lang.invoke.MethodType
  */
 class Obfuscationer(api: Int, classVisitor: ClassVisitor, val indyClass: IndyClass, val runnerArguments: RunnerArguments) : ClassVisitor(api, classVisitor) {
 	lateinit var cName: String
+	lateinit var dottedCName: String
 	override fun visit(version: Int, access: Int, name: String, signature: String?, superName: String?, interfaces: Array<out String>?) {
 		cName = name
+		dottedCName = cName.replace('/', '.')
 		super.visit(maxOf(version, V1_7), access, name, signature, superName, interfaces)
 	}
 
 	override fun visitMethod(access: Int, mName: String, descriptor: String, signature: String?, exceptions: Array<out String>?): MethodVisitor {
-		if (mName == "<init>" || mName == "<clinit>") {
+		val fullMethodName = "$dottedCName.$mName"
+		val fullMethodDesc = "$dottedCName.$mName$descriptor"
+		if (mName == "<init>" || mName == "<clinit>"
+				|| fullMethodName in runnerArguments.exclusions
+				|| fullMethodDesc in runnerArguments.exclusions) {
 			return super.visitMethod(access, mName, descriptor, signature, exceptions)
 		} else {
 			return object : MethodVisitor(api, super.visitMethod(access, mName, descriptor, signature, exceptions)) {

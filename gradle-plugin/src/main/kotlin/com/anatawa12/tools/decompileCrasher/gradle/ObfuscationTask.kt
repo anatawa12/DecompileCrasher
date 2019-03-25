@@ -40,6 +40,13 @@ open class ObfuscationTask() : DefaultTask() {
 	@Input
 	var postfix: String? = "obfuscated"
 
+	@Input
+	val exclusions: MutableSet<String> = mutableSetOf()
+
+	fun exclusions(vararg exclusions: String) {
+		this.exclusions.addAll(exclusions)
+	}
+
 	@InputFile
 	fun getInputFile(): File? = jarTask?.archivePath
 
@@ -49,7 +56,7 @@ open class ObfuscationTask() : DefaultTask() {
 	@TaskAction
 	fun runDecompileCrasher() {
 		if (getInputFile() == null) error("input file is null")
-		JarRunner.main(RunnerArguments(getInputFile()!!, getOutputFile(), IndyClass(solveClassPath, methodSolveMethod, fieldSolveMethod), withIndyClass, debug, true))
+		JarRunner.main(RunnerArguments(getInputFile()!!, getOutputFile(), IndyClass(solveClassPath, methodSolveMethod, fieldSolveMethod), withIndyClass, debug, true, exclusions))
 	}
 
 	val archiveName: String get() {
