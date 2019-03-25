@@ -6,6 +6,10 @@
       <module name="com.anatawa12.decompileCrasher.DecompileCrasher.test" target="1.8" />
       <module name="com.anatawa12.decompileCrasher.gradle-plugin.main" target="1.8" />
       <module name="com.anatawa12.decompileCrasher.gradle-plugin.test" target="1.8" />
+      <module name="DecompileCrasher.com.anatawa12.decompileCrasher.DecompileCrasher.main" target="1.8" />
+      <module name="DecompileCrasher.com.anatawa12.decompileCrasher.DecompileCrasher.test" target="1.8" />
+      <module name="gradle-plugin.com.anatawa12.decompileCrasher.gradle-plugin.main" target="1.8" />
+      <module name="gradle-plugin.com.anatawa12.decompileCrasher.gradle-plugin.test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="Encoding" addBOMForNewFiles="with NO BOM" />
@@ -32,12 +36,16 @@
   </component>
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/DecompileCrasher.com.anatawa12.decompileCrasher.DecompileCrasher.main.iml" filepath="$PROJECT_DIR$/DecompileCrasher.com.anatawa12.decompileCrasher.DecompileCrasher.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DecompileCrasher.com.anatawa12.decompileCrasher.DecompileCrasher.test.iml" filepath="$PROJECT_DIR$/DecompileCrasher.com.anatawa12.decompileCrasher.DecompileCrasher.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/com.anatawa12.decompileCrasher.DecompileCrasher.iml" filepath="$PROJECT_DIR$/com.anatawa12.decompileCrasher.DecompileCrasher.iml" />
       <module fileurl="file://$PROJECT_DIR$/com.anatawa12.decompileCrasher.DecompileCrasher.main.iml" filepath="$PROJECT_DIR$/com.anatawa12.decompileCrasher.DecompileCrasher.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/com.anatawa12.decompileCrasher.DecompileCrasher.test.iml" filepath="$PROJECT_DIR$/com.anatawa12.decompileCrasher.DecompileCrasher.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/gradle-plugin/com.anatawa12.decompileCrasher.gradle-plugin.iml" filepath="$PROJECT_DIR$/gradle-plugin/com.anatawa12.decompileCrasher.gradle-plugin.iml" />
       <module fileurl="file://$PROJECT_DIR$/gradle-plugin/com.anatawa12.decompileCrasher.gradle-plugin.main.iml" filepath="$PROJECT_DIR$/gradle-plugin/com.anatawa12.decompileCrasher.gradle-plugin.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/gradle-plugin/com.anatawa12.decompileCrasher.gradle-plugin.test.iml" filepath="$PROJECT_DIR$/gradle-plugin/com.anatawa12.decompileCrasher.gradle-plugin.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gradle-plugin/gradle-plugin.com.anatawa12.decompileCrasher.gradle-plugin.main.iml" filepath="$PROJECT_DIR$/gradle-plugin/gradle-plugin.com.anatawa12.decompileCrasher.gradle-plugin.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gradle-plugin/gradle-plugin.com.anatawa12.decompileCrasher.gradle-plugin.test.iml" filepath="$PROJECT_DIR$/gradle-plugin/gradle-plugin.com.anatawa12.decompileCrasher.gradle-plugin.test.iml" />
     </modules>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
