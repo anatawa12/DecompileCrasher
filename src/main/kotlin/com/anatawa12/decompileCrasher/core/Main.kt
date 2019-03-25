@@ -24,6 +24,7 @@ fun main(args: Array<String>) {
 	var withIndyClass: Boolean? = null
 	var debug: Boolean? = null
 	var isForce = false
+	val exclusions = mutableListOf<String>()
 	while (index in args.indices) {
 		val arg = args[index]
 		if (options) {
@@ -58,6 +59,10 @@ fun main(args: Array<String>) {
 					"-withoutIndy" -> {
 						if (withIndyClass != null) errorAndExit("can't duplicate -withoutIndy option")
 						withIndyClass = false
+					}
+					"-e", "-exclusion" -> {
+						index++
+						exclusions.add(args[index].replace('/', '.'))
 					}
 					"--debug" -> {
 						if (debug != null) errorAndExit("can't duplicate --debug option")
@@ -103,7 +108,7 @@ fun main(args: Array<String>) {
 		runnerType = if (srcFile.isFile) RunnerType.Jar else RunnerType.Classes
 	}
 	val arguments = RunnerArguments(srcFile, dstFile, IndyClass(indyClass, indyMethod, indyField), withIndyClass
-			?: true, debug ?: false, isForce)
+			?: true, debug ?: false, isForce, exclusions)
 	when (runnerType) {
 		RunnerType.Jar -> JarRunner.main(arguments)
 		RunnerType.Classes -> ClassesRunner.main(arguments)
