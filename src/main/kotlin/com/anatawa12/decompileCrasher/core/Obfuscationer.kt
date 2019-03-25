@@ -26,8 +26,8 @@ class Obfuscationer(api: Int, classVisitor: ClassVisitor, val indyClass: IndyCla
 		val fullMethodName = "$dottedCName.$mName"
 		val fullMethodDesc = "$dottedCName.$mName$descriptor"
 		if (mName == "<init>" || mName == "<clinit>"
-				|| runnerArguments.exclusions.any { fullMethodName.startsWith(it) }
-				|| runnerArguments.exclusions.any { fullMethodDesc.startsWith(it) }) {
+				|| fullMethodName in runnerArguments.exclusions
+				|| fullMethodDesc in runnerArguments.exclusions) {
 			return super.visitMethod(access, mName, descriptor, signature, exceptions)
 		} else {
 			return object : MethodVisitor(api, super.visitMethod(access, mName, descriptor, signature, exceptions)) {
