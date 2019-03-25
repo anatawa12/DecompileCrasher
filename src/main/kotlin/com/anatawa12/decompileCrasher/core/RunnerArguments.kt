@@ -11,4 +11,4 @@ class RunnerArguments (val src: File,
                        val withIndyClass: Boolean,
                        val debug: Boolean,
                        val isForce: Boolean,
-                       val exclusions: List<String>)
+                       val exclusions: Set<String>)

@@ -24,7 +24,7 @@ fun main(args: Array<String>) {
 	var withIndyClass: Boolean? = null
 	var debug: Boolean? = null
 	var isForce = false
-	val exclusions = mutableListOf<String>()
+	val exclusions = mutableSetOf<String>()
 	while (index in args.indices) {
 		val arg = args[index]
 		if (options) {
