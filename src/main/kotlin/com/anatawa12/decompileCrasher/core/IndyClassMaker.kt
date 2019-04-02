@@ -227,40 +227,42 @@ object IndyClassMaker {
 		store(suppressedThrowable, IllegalAccessException)
 
 
-		getstatic(System.internalName, "out", "$PrintStream")
+		if (isRuntimeDebug) {
+			getstatic(System.internalName, "out", "$PrintStream")
 
-		anew(StringBuilder)
-		dup()
-		aconst("has lookupModes: ")
-		invokespecial(StringBuilder.internalName, "<init>", "($String)$VOID_TYPE", false)
+			anew(StringBuilder)
+			dup()
+			aconst("has lookupModes: ")
+			invokespecial(StringBuilder.internalName, "<init>", "($String)$VOID_TYPE", false)
 
-		load(caller, Lookup)
-		invokevirtual(Lookup.internalName, "lookupModes", "()$INT_TYPE", false)
-		/*
+			load(caller, Lookup)
+			invokevirtual(Lookup.internalName, "lookupModes", "()$INT_TYPE", false)
+			/*
 		getstatic(Lookup.internalName, "PRIVATE", "$INT_TYPE")
 		and(INT_TYPE)
 		// */
-		invokevirtual(StringBuilder.internalName, "append", "($INT_TYPE)$StringBuilder", false)
-		aconst(" for ")
-		invokevirtual(StringBuilder.internalName, "append", "($Object)$StringBuilder", false)
-		aconst("callType: ")
-		invokevirtual(StringBuilder.internalName, "append", "($Object)$StringBuilder", false)
-		load(callType, INT_TYPE)
-		invokevirtual(StringBuilder.internalName, "append", "($INT_TYPE)$StringBuilder", false)
-		aconst(", owner: ")
-		invokevirtual(StringBuilder.internalName, "append", "($Object)$StringBuilder", false)
-		load(owner, Class)
-		invokevirtual(StringBuilder.internalName, "append", "($Object)$StringBuilder", false)
-		aconst(", name: ")
-		invokevirtual(StringBuilder.internalName, "append", "($Object)$StringBuilder", false)
-		load(name, String)
-		invokevirtual(StringBuilder.internalName, "append", "($Object)$StringBuilder", false)
-		aconst(", findType: ")
-		invokevirtual(StringBuilder.internalName, "append", "($Object)$StringBuilder", false)
-		load(findType, String)
-		invokevirtual(StringBuilder.internalName, "append", "($Object)$StringBuilder", false)
+			invokevirtual(StringBuilder.internalName, "append", "($INT_TYPE)$StringBuilder", false)
+			aconst(" for ")
+			invokevirtual(StringBuilder.internalName, "append", "($Object)$StringBuilder", false)
+			aconst("callType: ")
+			invokevirtual(StringBuilder.internalName, "append", "($Object)$StringBuilder", false)
+			load(callType, INT_TYPE)
+			invokevirtual(StringBuilder.internalName, "append", "($INT_TYPE)$StringBuilder", false)
+			aconst(", owner: ")
+			invokevirtual(StringBuilder.internalName, "append", "($Object)$StringBuilder", false)
+			load(owner, Class)
+			invokevirtual(StringBuilder.internalName, "append", "($Object)$StringBuilder", false)
+			aconst(", name: ")
+			invokevirtual(StringBuilder.internalName, "append", "($Object)$StringBuilder", false)
+			load(name, String)
+			invokevirtual(StringBuilder.internalName, "append", "($Object)$StringBuilder", false)
+			aconst(", findType: ")
+			invokevirtual(StringBuilder.internalName, "append", "($Object)$StringBuilder", false)
+			load(findType, String)
+			invokevirtual(StringBuilder.internalName, "append", "($Object)$StringBuilder", false)
 
-		invokevirtual(PrintStream.internalName, "println", "($Object)$VOID_TYPE", false)
+			invokevirtual(PrintStream.internalName, "println", "($Object)$VOID_TYPE", false)
+		}
 
 		line(102)
 
@@ -310,7 +312,9 @@ object IndyClassMaker {
 		val handler = labelHere()
 		visitTryCatchBlock(tryStart, tryEnd, handler, Throwable.internalName)
 
-		wrapLog(callType, owner, name, findType)
+		if (isRuntimeDebug) {
+			wrapLog(callType, owner, name, findType)
+		}
 
 		visitMaxs(0, 0)
 		visitEnd()
