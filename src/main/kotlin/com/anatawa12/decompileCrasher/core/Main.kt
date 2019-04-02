@@ -23,6 +23,7 @@ fun main(args: Array<String>) {
 	var dst: String? = null
 	var withIndyClass: Boolean? = null
 	var debug: Boolean? = null
+	var isRuntimeDebug: Boolean? = null
 	var isForce = false
 	val exclusions = mutableSetOf<String>()
 	while (index in args.indices) {
@@ -68,6 +69,10 @@ fun main(args: Array<String>) {
 						if (debug != null) errorAndExit("can't duplicate --debug option")
 						debug = true
 					}
+					"--runtimeDebug" -> {
+						if (isRuntimeDebug != null) errorAndExit("can't duplicate --runtimeDebug option")
+						isRuntimeDebug = true
+					}
 					"--help" -> {
 						printHelp()
 						exitProcess(0)
@@ -108,7 +113,7 @@ fun main(args: Array<String>) {
 		runnerType = if (srcFile.isFile) RunnerType.Jar else RunnerType.Classes
 	}
 	val arguments = RunnerArguments(srcFile, dstFile, IndyClass(indyClass, indyMethod, indyField), withIndyClass
-			?: true, debug ?: false, isForce, exclusions)
+			?: true, debug ?: false, isRuntimeDebug ?: false, isForce, exclusions)
 	when (runnerType) {
 		RunnerType.Jar -> JarRunner.main(arguments)
 		RunnerType.Classes -> ClassesRunner.main(arguments)

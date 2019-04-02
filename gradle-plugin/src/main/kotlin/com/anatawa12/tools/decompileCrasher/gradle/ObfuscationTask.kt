@@ -26,6 +26,9 @@ open class ObfuscationTask() : DefaultTask() {
 	var debug = false
 
 	@Input
+	var isRuntimeDebug = false
+
+	@Input
 	var solveClassPath: String = IndyClass.default.classPath
 
 	@Input
@@ -56,7 +59,7 @@ open class ObfuscationTask() : DefaultTask() {
 	@TaskAction
 	fun runDecompileCrasher() {
 		if (getInputFile() == null) error("input file is null")
-		JarRunner.main(RunnerArguments(getInputFile()!!, getOutputFile(), IndyClass(solveClassPath, methodSolveMethod, fieldSolveMethod), withIndyClass, debug, true, exclusions))
+		JarRunner.main(RunnerArguments(getInputFile()!!, getOutputFile(), IndyClass(solveClassPath, methodSolveMethod, fieldSolveMethod), withIndyClass, debug, isRuntimeDebug, true, exclusions))
 	}
 
 	val archiveName: String get() {

@@ -8,6 +8,10 @@
       <module name="com.anatawa12.decompileCrasher.gradle-plugin.test" target="1.8" />
       <module name="DecompileCrasher.com.anatawa12.decompileCrasher.DecompileCrasher.main" target="1.8" />
       <module name="DecompileCrasher.com.anatawa12.decompileCrasher.DecompileCrasher.test" target="1.8" />
+      <module name="DecompileCrasher.gradle-plugin.com.anatawa12.decompileCrasher.gradle-plugin.main" target="1.8" />
+      <module name="DecompileCrasher.gradle-plugin.com.anatawa12.decompileCrasher.gradle-plugin.test" target="1.8" />
+      <module name="Desktop.DecompileCrasher.com.anatawa12.decompileCrasher.DecompileCrasher.main" target="1.8" />
+      <module name="Desktop.DecompileCrasher.com.anatawa12.decompileCrasher.DecompileCrasher.test" target="1.8" />
       <module name="gradle-plugin.com.anatawa12.decompileCrasher.gradle-plugin.main" target="1.8" />
       <module name="gradle-plugin.com.anatawa12.decompileCrasher.gradle-plugin.test" target="1.8" />
     </bytecodeTargetLevel>
@@ -38,6 +42,10 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/DecompileCrasher.com.anatawa12.decompileCrasher.DecompileCrasher.main.iml" filepath="$PROJECT_DIR$/DecompileCrasher.com.anatawa12.decompileCrasher.DecompileCrasher.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/DecompileCrasher.com.anatawa12.decompileCrasher.DecompileCrasher.test.iml" filepath="$PROJECT_DIR$/DecompileCrasher.com.anatawa12.decompileCrasher.DecompileCrasher.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gradle-plugin/DecompileCrasher.gradle-plugin.com.anatawa12.decompileCrasher.gradle-plugin.main.iml" filepath="$PROJECT_DIR$/gradle-plugin/DecompileCrasher.gradle-plugin.com.anatawa12.decompileCrasher.gradle-plugin.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gradle-plugin/DecompileCrasher.gradle-plugin.com.anatawa12.decompileCrasher.gradle-plugin.test.iml" filepath="$PROJECT_DIR$/gradle-plugin/DecompileCrasher.gradle-plugin.com.anatawa12.decompileCrasher.gradle-plugin.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Desktop.DecompileCrasher.com.anatawa12.decompileCrasher.DecompileCrasher.main.iml" filepath="$PROJECT_DIR$/Desktop.DecompileCrasher.com.anatawa12.decompileCrasher.DecompileCrasher.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Desktop.DecompileCrasher.com.anatawa12.decompileCrasher.DecompileCrasher.test.iml" filepath="$PROJECT_DIR$/Desktop.DecompileCrasher.com.anatawa12.decompileCrasher.DecompileCrasher.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/com.anatawa12.decompileCrasher.DecompileCrasher.iml" filepath="$PROJECT_DIR$/com.anatawa12.decompileCrasher.DecompileCrasher.iml" />
       <module fileurl="file://$PROJECT_DIR$/com.anatawa12.decompileCrasher.DecompileCrasher.main.iml" filepath="$PROJECT_DIR$/com.anatawa12.decompileCrasher.DecompileCrasher.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/com.anatawa12.decompileCrasher.DecompileCrasher.test.iml" filepath="$PROJECT_DIR$/com.anatawa12.decompileCrasher.DecompileCrasher.test.iml" />

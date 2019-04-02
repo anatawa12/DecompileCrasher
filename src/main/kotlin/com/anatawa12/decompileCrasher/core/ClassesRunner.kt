@@ -32,7 +32,7 @@ object ClassesRunner {
 			val file = dscDir.resolve(indyClass.classPath + ".class")
 			file.parentFile.mkdirs()
 			file.outputStream().use {
-				it.write(IndyClassMaker.make(indyClass))
+				it.write(IndyClassMaker.make(indyClass, arguments.isRuntimeDebug))
 			}
 		}
 	}

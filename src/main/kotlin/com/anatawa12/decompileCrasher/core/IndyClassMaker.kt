@@ -36,13 +36,8 @@ object IndyClassMaker {
 	private val RuntimeException = getType(RuntimeException::class.java)
 	private val Throwable = getType(Throwable::class.java)
 
-	@JvmStatic
-	fun main(args: Array<String>) {
-		make(IndyClass.default)
-	}
-
 	@Suppress("LocalVariableName")
-	fun make(indyClass: IndyClass): ByteArray? {
+	fun make(indyClass: IndyClass, isRuntimeDebug: Boolean): ByteArray? {
 		val writer = ClassWriter(COMPUTE_MAXS or COMPUTE_FRAMES)
 		val thisClass = getObjectType(indyClass.classPath)
 
@@ -72,7 +67,7 @@ object IndyClassMaker {
 				val signetureType = Class
 				val indyClassMethodName = indyClass.field
 
-				getCallSite(thisClass, signetureType, indyClassMethodName)
+				getCallSite(thisClass, signetureType, indyClassMethodName, isRuntimeDebug)
 			}
 			//endregion
 
@@ -138,7 +133,7 @@ object IndyClassMaker {
 				val signetureType = MethodType
 				val indyClassMethodName = indyClass.method
 
-				getCallSite(thisClass, signetureType, indyClassMethodName)
+				getCallSite(thisClass, signetureType, indyClassMethodName, isRuntimeDebug)
 			}
 			//region methodMethodHandle
 			InstructionAdapter(visitMethod(ACC_PUBLIC or ACC_STATIC, indyClass.method + "$$1",
@@ -214,7 +209,8 @@ object IndyClassMaker {
 	private fun InstructionAdapter.getCallSite(
 			thisClass: Type,
 			signetureType: Type,
-			indyClassMethodName: String) {
+			indyClassMethodName: String,
+			isRuntimeDebug: Boolean) {
 		val caller = 0
 		val methodType = 2
 		val callType = 3

@@ -48,7 +48,7 @@ object JarRunner {
 			if (arguments.withIndyClass) {
 				val entry = ZipEntry(indyClass.classPath + ".class")
 				outStream.putNextEntry(entry)
-				outStream.write(IndyClassMaker.make(indyClass))
+				outStream.write(IndyClassMaker.make(indyClass, arguments.isRuntimeDebug))
 				outStream.closeEntry()
 			}
 		}
