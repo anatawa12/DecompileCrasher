@@ -227,6 +227,7 @@ object IndyClassMaker {
 		store(suppressedThrowable, IllegalAccessException)
 
 
+		println("debug on: $isRuntimeDebug")
 		if (isRuntimeDebug) {
 			getstatic(System.internalName, "out", "$PrintStream")
 
@@ -312,9 +313,7 @@ object IndyClassMaker {
 		val handler = labelHere()
 		visitTryCatchBlock(tryStart, tryEnd, handler, Throwable.internalName)
 
-		if (isRuntimeDebug) {
-			wrapLog(callType, owner, name, findType)
-		}
+		wrapLog(callType, owner, name, findType)
 
 		visitMaxs(0, 0)
 		visitEnd()
