@@ -64,6 +64,11 @@ class ObfuscationTask {
     boolean withIndyClass;
 }
 ```
+
+### with Command line tools
+
+download from Releases and see `readme.en.txt` or exec `run_unix.sh` or `run_win.dat` (please select by your OS).
+
 ## License
 
 this software was released under [MIT License](LICENSE)
