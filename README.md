@@ -17,8 +17,8 @@ Decompiler will make invalid source code or internal error will be thrown
 
 ![idea](readme-contents/idea_decompile.png?raw=true)
 
-### how-to-use
-## with gradle 
+## how-to-use
+### with gradle 
 add this
 ```
 buildscript {
