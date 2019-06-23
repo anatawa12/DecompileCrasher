@@ -66,4 +66,4 @@ class ObfuscationTask {
 ```
 ## License
 
-this software was released under [MIT Licesnse](LICENSE)
+this software was released under [MIT License](LICENSE)
