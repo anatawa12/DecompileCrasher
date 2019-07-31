@@ -26,6 +26,7 @@ fun main(args: Array<String>) {
 	var isRuntimeDebug: Boolean? = null
 	var isForce = false
 	val exclusions = mutableSetOf<String>()
+	val excludeTargets = mutableListOf<MethodFullSignature>()
 	while (index in args.indices) {
 		val arg = args[index]
 		if (options) {
@@ -77,6 +78,11 @@ fun main(args: Array<String>) {
 						printHelp()
 						exitProcess(0)
 					}
+					"-exclude-target" -> {
+						printHelp()
+						index++
+						excludeTargets += MethodFullSignature.perse(args[index])
+					}
 					"--" -> {
 						options = false
 					}
@@ -113,7 +119,7 @@ fun main(args: Array<String>) {
 		runnerType = if (srcFile.isFile) RunnerType.Jar else RunnerType.Classes
 	}
 	val arguments = RunnerArguments(srcFile, dstFile, IndyClass(indyClass, indyMethod, indyField), withIndyClass
-			?: true, debug ?: false, isRuntimeDebug ?: false, isForce, exclusions)
+			?: true, debug ?: false, isRuntimeDebug ?: false, isForce, exclusions, excludeTargets)
 	when (runnerType) {
 		RunnerType.Jar -> JarRunner.main(arguments)
 		RunnerType.Classes -> ClassesRunner.main(arguments)

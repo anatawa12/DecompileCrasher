@@ -14,7 +14,7 @@
       <module name="library_test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
-  <component name="Encoding" addBOMForNewFiles="with NO BOM">
+  <component name="Encoding">
     <file url="file://$USER_HOME$/Downloads/latest.log" charset="Shift_JIS" />
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />

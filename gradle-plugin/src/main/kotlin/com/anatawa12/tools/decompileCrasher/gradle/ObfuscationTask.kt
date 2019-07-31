@@ -2,6 +2,7 @@ package com.anatawa12.tools.decompileCrasher.gradle
 
 import com.anatawa12.decompileCrasher.core.IndyClass
 import com.anatawa12.decompileCrasher.core.JarRunner
+import com.anatawa12.decompileCrasher.core.MethodFullSignature
 import com.anatawa12.decompileCrasher.core.RunnerArguments
 import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.*
@@ -56,10 +57,17 @@ open class ObfuscationTask() : DefaultTask() {
 	@OutputFile
 	fun getOutputFile(): File = File(destinationDir, archiveName)
 
+	@Input
+	private val excludeTargets: MutableList<MethodFullSignature> = mutableListOf()
+
+	fun excludeTarget(name: String) {
+		excludeTargets += MethodFullSignature.perse(name)
+	}
+
 	@TaskAction
 	fun runDecompileCrasher() {
 		if (getInputFile() == null) error("input file is null")
-		JarRunner.main(RunnerArguments(getInputFile()!!, getOutputFile(), IndyClass(solveClassPath, methodSolveMethod, fieldSolveMethod), withIndyClass, debug, isRuntimeDebug, true, exclusions))
+		JarRunner.main(RunnerArguments(getInputFile()!!, getOutputFile(), IndyClass(solveClassPath, methodSolveMethod, fieldSolveMethod), withIndyClass, debug, isRuntimeDebug, true, exclusions, excludeTargets))
 	}
 
 	val archiveName: String get() {
