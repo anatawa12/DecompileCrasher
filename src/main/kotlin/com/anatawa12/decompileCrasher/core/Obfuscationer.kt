@@ -32,6 +32,9 @@ class Obfuscationer(api: Int, classVisitor: ClassVisitor, val indyClass: IndyCla
 		} else {
 			return object : MethodVisitor(api, super.visitMethod(access, mName, descriptor, signature, exceptions)) {
 				override fun visitMethodInsn(opcode: Int, owner: String, name: String, descriptor: String, isInterface: Boolean) {
+					if (MethodFullSignature(owner, name, descriptor) in runnerArguments.excludeTargets)
+						return super.visitMethodInsn(opcode, owner, name, descriptor, isInterface)
+
 					val ownerType = getObjectType(owner)
 					val returnType = getReturnType(descriptor)
 					val arguments = getArgumentTypes(descriptor)
