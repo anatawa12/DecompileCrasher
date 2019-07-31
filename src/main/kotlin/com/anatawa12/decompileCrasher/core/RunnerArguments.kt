@@ -94,6 +94,13 @@ data class MethodFullSignature(
                     require(text[i] == ')') { "invalid signature: $text, unexpexted end of string" }
                     append(text[i])
                     i++ // skip ')'
+                    ary@ while (i < text.length) {
+                        when (val c = text[i]) {
+                            '[' -> append(c)
+                            else -> break@ary
+                        }
+                        i++// skip '['
+                    }
                     when (val c = text[i]) {
                         'B', 'C', 'D', 'F', 'I', 'J', 'S', 'Z', 'V' -> append(c)
                         'L' -> {
