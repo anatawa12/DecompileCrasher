@@ -114,6 +114,7 @@ data class MethodFullSignature(
                                 }
                                 i++
                             }
+                            append(text[i])
                         }
                         else -> throw IllegalArgumentException("invalid signature: $text, invalid char $c at $i")
                     }
