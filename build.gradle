@@ -48,8 +48,8 @@ jar {
     }
 }
 
-task zipApp(type: Zip,  dependsOn: jar) {
-    into ("IndyObfuscation") {
+task zipApp(type: Zip, dependsOn: jar) {
+    into("IndyObfuscation") {
         from("bin")
         into("lib") {
             from jar.archivePath
