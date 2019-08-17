@@ -2,6 +2,8 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
+      <module name="com.anatawa12.decompileCrasher-gradle-plugin_main" target="1.8" />
+      <module name="com.anatawa12.decompileCrasher-gradle-plugin_test" target="1.8" />
       <module name="decompile-crasher_main" target="1.8" />
       <module name="decompile-crasher_test" target="1.8" />
       <module name="DecompileCrasher_main" target="1.8" />
@@ -49,6 +51,8 @@
       <module fileurl="file://$PROJECT_DIR$/DecompileCrasher_main.iml" filepath="$PROJECT_DIR$/DecompileCrasher_main.iml" group="DecompileCrasher" />
       <module fileurl="file://$PROJECT_DIR$/DecompileCrasher_test.iml" filepath="$PROJECT_DIR$/DecompileCrasher_test.iml" group="DecompileCrasher" />
       <module fileurl="file://$PROJECT_DIR$/com.anatawa12.decompileCrasher-DecompileCrasher.iml" filepath="$PROJECT_DIR$/com.anatawa12.decompileCrasher-DecompileCrasher.iml" group="DecompileCrasher" />
+      <module fileurl="file://$PROJECT_DIR$/gradle-plugin/com.anatawa12.decompileCrasher-gradle-plugin_main.iml" filepath="$PROJECT_DIR$/gradle-plugin/com.anatawa12.decompileCrasher-gradle-plugin_main.iml" group="DecompileCrasher/gradle-plugin" />
+      <module fileurl="file://$PROJECT_DIR$/gradle-plugin/com.anatawa12.decompileCrasher-gradle-plugin_test.iml" filepath="$PROJECT_DIR$/gradle-plugin/com.anatawa12.decompileCrasher-gradle-plugin_test.iml" group="DecompileCrasher/gradle-plugin" />
       <module fileurl="file://$PROJECT_DIR$/gradle-plugin/gradle-plugin.iml" filepath="$PROJECT_DIR$/gradle-plugin/gradle-plugin.iml" group="DecompileCrasher/gradle-plugin" />
       <module fileurl="file://$PROJECT_DIR$/gradle-plugin/gradle-plugin_main.iml" filepath="$PROJECT_DIR$/gradle-plugin/gradle-plugin_main.iml" group="DecompileCrasher/gradle-plugin" />
       <module fileurl="file://$PROJECT_DIR$/gradle-plugin/gradle-plugin_test.iml" filepath="$PROJECT_DIR$/gradle-plugin/gradle-plugin_test.iml" group="DecompileCrasher/gradle-plugin" />
