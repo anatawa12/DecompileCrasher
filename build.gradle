@@ -14,7 +14,7 @@ apply plugin: 'java'
 
 apply from: "https://gist.githubusercontent.com/anatawa12/75cb9a093bc93ed473a7ca2ac489eaf9/raw/aec03f39610fa231acfbb000855a337d63d59510/gradle-mvn-push.gradle"
 
-group 'com.anatawa12.decompileCrasher'
+group GROUP
 version VERSION_NAME
 
 sourceCompatibility = 1.8
@@ -48,8 +48,8 @@ jar {
     }
 }
 
-task zipApp(type: Zip,  dependsOn: jar) {
-    into ("IndyObfuscation") {
+task zipApp(type: Zip, dependsOn: jar) {
+    into("IndyObfuscation") {
         from("bin")
         into("lib") {
             from jar.archivePath

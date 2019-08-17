@@ -14,10 +14,11 @@
       <module name="library_test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
-  <component name="Encoding" addBOMForNewFiles="with NO BOM">
+  <component name="Encoding">
     <file url="file://$USER_HOME$/Downloads/latest.log" charset="Shift_JIS" />
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="GradleMigrationSettings" migrationVersion="1" />
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
@@ -44,12 +45,13 @@
   </component>
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/DecompileCrasher.iml" filepath="$PROJECT_DIR$/DecompileCrasher.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DecompileCrasher.iml" filepath="$PROJECT_DIR$/DecompileCrasher.iml" group="DecompileCrasher" />
       <module fileurl="file://$PROJECT_DIR$/DecompileCrasher_main.iml" filepath="$PROJECT_DIR$/DecompileCrasher_main.iml" group="DecompileCrasher" />
       <module fileurl="file://$PROJECT_DIR$/DecompileCrasher_test.iml" filepath="$PROJECT_DIR$/DecompileCrasher_test.iml" group="DecompileCrasher" />
-      <module fileurl="file://$PROJECT_DIR$/gradle-plugin/gradle-plugin.iml" filepath="$PROJECT_DIR$/gradle-plugin/gradle-plugin.iml" group="gradle-plugin" />
-      <module fileurl="file://$PROJECT_DIR$/gradle-plugin/gradle-plugin_main.iml" filepath="$PROJECT_DIR$/gradle-plugin/gradle-plugin_main.iml" group="gradle-plugin" />
-      <module fileurl="file://$PROJECT_DIR$/gradle-plugin/gradle-plugin_test.iml" filepath="$PROJECT_DIR$/gradle-plugin/gradle-plugin_test.iml" group="gradle-plugin" />
+      <module fileurl="file://$PROJECT_DIR$/com.anatawa12.decompileCrasher-DecompileCrasher.iml" filepath="$PROJECT_DIR$/com.anatawa12.decompileCrasher-DecompileCrasher.iml" group="DecompileCrasher" />
+      <module fileurl="file://$PROJECT_DIR$/gradle-plugin/gradle-plugin.iml" filepath="$PROJECT_DIR$/gradle-plugin/gradle-plugin.iml" group="DecompileCrasher/gradle-plugin" />
+      <module fileurl="file://$PROJECT_DIR$/gradle-plugin/gradle-plugin_main.iml" filepath="$PROJECT_DIR$/gradle-plugin/gradle-plugin_main.iml" group="DecompileCrasher/gradle-plugin" />
+      <module fileurl="file://$PROJECT_DIR$/gradle-plugin/gradle-plugin_test.iml" filepath="$PROJECT_DIR$/gradle-plugin/gradle-plugin_test.iml" group="DecompileCrasher/gradle-plugin" />
     </modules>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
