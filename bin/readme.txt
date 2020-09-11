@@ -3,7 +3,7 @@
 
 使い方
 	windowsの場合
-		run_win.dat [options] [input file/directory] [output file/directory]
+		run_win.bat [options] [input file/directory] [output file/directory]
 	mac/unix/linuxの場合
 		run_unix.sh [options] [input file/directory] [output file/directory]
 
