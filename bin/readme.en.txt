@@ -3,7 +3,7 @@ Operating environment
 
 How to use
 	on windows
-		run_win.dat [options] [input file/directory] [output file/directory]
+		run_win.bat [options] [input file/directory] [output file/directory]
 	on mac/unix/linux
 		run_unix.sh [options] [input file/directory] [output file/directory]
 
