@@ -14,6 +14,7 @@ import java.io.File
  */
 @CacheableTask
 open class ObfuscationTask() : DefaultTask() {
+    @Internal
     var jarTask: Jar? = null
 
     init {
@@ -21,31 +22,32 @@ open class ObfuscationTask() : DefaultTask() {
         description = "runDecompileCrasher with DecompileCrasher"
     }
 
-    @Input
+    @get:Input
     var withIndyClass = true
 
-    @Input
+    @get:Input
     var debug = false
 
-    @Input
+    @get:Input
     var isRuntimeDebug = false
 
-    @Input
+    @get:Input
     var solveClassPath: String = IndyClass.default.classPath
 
-    @Input
+    @get:Input
     var methodSolveMethod: String = IndyClass.default.method
 
-    @Input
+    @get:Input
     var fieldSolveMethod: String = IndyClass.default.field
 
-    @Input
+    // a part of getOutputFile
+    @get:Internal
     var destinationDir: File? = null
 
-    @Input
+    @get:Input
     var postfix: String? = "obfuscated"
 
-    @Input
+    @get:Input
     val exclusions: MutableSet<String> = mutableSetOf()
 
     fun exclusions(vararg exclusions: String) {
@@ -71,6 +73,8 @@ open class ObfuscationTask() : DefaultTask() {
         JarRunner.main(RunnerArguments(getInputFile()!!, getOutputFile(), IndyClass(solveClassPath, methodSolveMethod, fieldSolveMethod), withIndyClass, debug, isRuntimeDebug, true, exclusions, excludeTargets))
     }
 
+    // a part of getOutputFile
+    @get:Internal
     val archiveName: String
         get() {
             var name = (jarTask?.baseName ?: "") + this.maybe(jarTask?.baseName, jarTask?.appendix)

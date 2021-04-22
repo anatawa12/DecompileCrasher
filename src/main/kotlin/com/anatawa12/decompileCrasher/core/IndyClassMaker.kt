@@ -227,7 +227,6 @@ object IndyClassMaker {
         store(suppressedThrowable, IllegalAccessException)
 
 
-        println("debug on: $isRuntimeDebug")
         if (isRuntimeDebug) {
             getstatic(System.internalName, "out", "$PrintStream")
 
