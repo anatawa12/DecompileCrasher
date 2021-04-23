@@ -1,6 +1,7 @@
 package com.anatawa12.decompileCrasher.core
 
 import java.io.File
+import java.io.Serializable
 
 /**
  * Created by anatawa12 on 2018/09/09.
@@ -22,7 +23,7 @@ data class MethodFullSignature(
          * if null, check only methodName
          */
         val methodSignature: String?
-) {
+) : Serializable {
     override fun toString(): String {
         if (methodSignature != null)
             return "$className.$methodName:$methodSignature"

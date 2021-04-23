@@ -5,6 +5,8 @@ import com.anatawa12.decompileCrasher.core.JarRunner
 import com.anatawa12.decompileCrasher.core.MethodFullSignature
 import com.anatawa12.decompileCrasher.core.RunnerArguments
 import org.gradle.api.DefaultTask
+import org.gradle.api.file.RegularFile
+import org.gradle.api.provider.Provider
 import org.gradle.api.tasks.*
 import org.gradle.jvm.tasks.Jar
 import java.io.File
@@ -54,14 +56,20 @@ open class ObfuscationTask() : DefaultTask() {
         this.exclusions.addAll(exclusions)
     }
 
+    @Deprecated("binary compatible", level = DeprecationLevel.HIDDEN)
+    @Suppress("UNUSED_PARAMETER")
+    @JvmOverloads
+    fun getInputFile(dummy: Int = 0): File? = jarTask?.archiveFile?.get()?.asFile
+
     @InputFile
-    fun getInputFile(): File? = jarTask?.archivePath
+    @PathSensitive(PathSensitivity.NONE)
+    fun getInputFile(): Provider<RegularFile> = jarTask!!.archiveFile
 
     @OutputFile
     fun getOutputFile(): File = File(destinationDir, archiveName)
 
     @Input
-    private val excludeTargets: MutableList<MethodFullSignature> = mutableListOf()
+    val excludeTargets: MutableList<MethodFullSignature> = mutableListOf()
 
     fun excludeTarget(name: String) {
         excludeTargets += MethodFullSignature.perse(name)
@@ -69,19 +77,19 @@ open class ObfuscationTask() : DefaultTask() {
 
     @TaskAction
     fun runDecompileCrasher() {
-        if (getInputFile() == null) error("input file is null")
-        JarRunner.main(RunnerArguments(getInputFile()!!, getOutputFile(), IndyClass(solveClassPath, methodSolveMethod, fieldSolveMethod), withIndyClass, debug, isRuntimeDebug, true, exclusions, excludeTargets))
+        if (jarTask == null) error("input file is null")
+        JarRunner.main(RunnerArguments(getInputFile().get().asFile, getOutputFile(), IndyClass(solveClassPath, methodSolveMethod, fieldSolveMethod), withIndyClass, debug, isRuntimeDebug, true, exclusions, excludeTargets))
     }
 
     // a part of getOutputFile
     @get:Internal
     val archiveName: String
         get() {
-            var name = (jarTask?.baseName ?: "") + this.maybe(jarTask?.baseName, jarTask?.appendix)
-            name += this.maybe(name, jarTask?.version)
-            name += this.maybe(name, jarTask?.classifier)
+            var name = (jarTask?.archiveBaseName?.get() ?: "") + this.maybe(jarTask?.archiveBaseName?.get(), jarTask?.archiveAppendix?.get())
+            name += this.maybe(name, jarTask?.archiveVersion?.get())
+            name += this.maybe(name, jarTask?.archiveClassifier?.get())
             name += this.maybe(name, postfix)
-            name += if (jarTask?.extension?.isNotEmpty() == true) "." + jarTask!!.extension else ""
+            name += if (jarTask?.archiveExtension?.get()?.isNotEmpty() == true) "." + jarTask!!.archiveExtension.get() else ""
             return name
         }
 
