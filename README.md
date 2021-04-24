@@ -1,5 +1,9 @@
 # Decompile Crasher
 
+[![a12 maintenance: Slowly](https://anatawa12.com/short.php?q=a12-slowly-svg)](https://anatawa12.com/short.php?q=a12-slowly-doc)
+[![Discord](https://img.shields.io/discord/834256470580396043)](https://discord.gg/yzEdnuJMXv)
+<!--[![Gradle Plugin Portal](https://img.shields.io/maven-metadata/v/https/plugins.gradle.org/m2/com/anatawa12/tools/decompileCrasher/com.anatawa12.tools.decompileCrasher.plugin/maven-metadata.xml.svg?colorB=007ec6&label=gradle&logo=gradle)](https://plugins.gradle.org/plugin/com.anatawa12.compile-time-constant)-->
+
 A tool to make a Jar Hard to decompile.
 Decompiler will make invalid source code or internal error will be thrown
 
