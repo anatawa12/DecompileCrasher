@@ -8,6 +8,7 @@ fun PublicationContainer.creatingDecompileCrasher(project: Project) = creating(M
     from(project.components["java"])
 
     pom {
+        name.set("DecompileCrasher")
         description.set("A obfuscater with invokedynamic")
         url.set("https://github.com/anatawa12/DecompileCrasher")
 

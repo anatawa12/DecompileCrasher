@@ -19,6 +19,11 @@ dependencies {
     implementation(project(":"))
 }
 
+java {
+    withJavadocJar()
+    withSourcesJar()
+}
+
 gradlePlugin {
     plugins {
         create("decompileCrasher") {
@@ -50,7 +55,7 @@ signing.sign(maven)
 tasks.withType<PublishToMavenRepository>().configureEach {
     onlyIf {
         if (repository.name == "mavenCentral") {
-            publication.name != "decompileCrasherPluginMarker"
+            publication.name != "decompileCrasherPluginMarkerMaven"
                     && publication.name != "pluginMaven"
         } else {
             true
