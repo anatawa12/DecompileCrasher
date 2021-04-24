@@ -83,11 +83,13 @@ open class ObfuscationTask() : DefaultTask() {
 
     // a part of getOutputFile
     @get:Internal
+    @Suppress("UsePropertyAccessSyntax")
+    // getOrNull is a verb, not get orNull
     val archiveName: String
         get() {
-            var name = (jarTask?.archiveBaseName?.get() ?: "") + this.maybe(jarTask?.archiveBaseName?.get(), jarTask?.archiveAppendix?.get())
-            name += this.maybe(name, jarTask?.archiveVersion?.get())
-            name += this.maybe(name, jarTask?.archiveClassifier?.get())
+            var name = (jarTask?.archiveBaseName?.get() ?: "") + this.maybe(jarTask?.archiveBaseName?.getOrNull(), jarTask?.archiveAppendix?.getOrNull())
+            name += this.maybe(name, jarTask?.archiveVersion?.getOrNull())
+            name += this.maybe(name, jarTask?.archiveClassifier?.getOrNull())
             name += this.maybe(name, postfix)
             name += if (jarTask?.archiveExtension?.get()?.isNotEmpty() == true) "." + jarTask!!.archiveExtension.get() else ""
             return name
