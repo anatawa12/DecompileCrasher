@@ -1,5 +1,6 @@
 plugins {
     id("org.jetbrains.kotlin.jvm") version "1.4.32"
+    id("com.gradle.plugin-publish") version "0.14.0" apply false
     application
     `maven-publish`
     signing
