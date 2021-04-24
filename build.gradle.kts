@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "com.anatawa12.decompileCrasher"
-version = "1.2.1"
+version = "1.2.2"
 
 application {
     mainClass.set("com.anatawa12.decompileCrasher.core.MainKt")
@@ -22,6 +22,11 @@ dependencies {
     implementation("org.ow2.asm:asm:5.0.3")
     implementation("org.ow2.asm:asm-commons:5.0.3")
     testImplementation("junit:junit:4.12")
+}
+
+java {
+    withJavadocJar()
+    withSourcesJar()
 }
 
 val maven by publishing.publications.creatingDecompileCrasher(project)
