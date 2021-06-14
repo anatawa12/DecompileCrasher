@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "com.anatawa12.decompileCrasher"
-version = "1.2.3"
+version = property("version")!!
 
 application {
     mainClass.set("com.anatawa12.decompileCrasher.core.MainKt")
