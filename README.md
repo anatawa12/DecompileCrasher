@@ -27,7 +27,7 @@ add this
 ```
 buildscript {
     dependces {
-        classpath group: 'com.anatawa12.decompileCrasher', name: 'gradle-plugin', version: '1.2.3'
+        classpath group: 'com.anatawa12.decompileCrasher', name: 'gradle-plugin', version: '<version>'
     }
 }
 
